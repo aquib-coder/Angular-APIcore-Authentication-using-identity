@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\API_Core.csproj": {}
+    "C:\\Users\\aquib\\Desktop\\testAngularClone\\Angular-APIcore-Authentication-using-identity\\API_Core\\API_Core.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\API_Core.csproj": {
+    "C:\\Users\\aquib\\Desktop\\testAngularClone\\Angular-APIcore-Authentication-using-identity\\API_Core\\API_Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\API_Core.csproj",
+        "projectUniqueName": "C:\\Users\\aquib\\Desktop\\testAngularClone\\Angular-APIcore-Authentication-using-identity\\API_Core\\API_Core.csproj",
         "projectName": "API_Core",
-        "projectPath": "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\API_Core.csproj",
-        "packagesPath": "C:\\Users\\aquibj\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\obj\\",
+        "projectPath": "C:\\Users\\aquib\\Desktop\\testAngularClone\\Angular-APIcore-Authentication-using-identity\\API_Core\\API_Core.csproj",
+        "packagesPath": "C:\\Users\\aquib\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aquib\\Desktop\\testAngularClone\\Angular-APIcore-Authentication-using-identity\\API_Core\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\aquibj\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\aquib\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,10 +54,6 @@
               "target": "Package",
               "version": "[5.0.15, )"
             },
-            "Microsoft.EntityFrameworkCore.InMemory": {
-              "target": "Package",
-              "version": "[5.0.15, )"
-            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[5.0.15, )"
@@ -95,7 +87,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
