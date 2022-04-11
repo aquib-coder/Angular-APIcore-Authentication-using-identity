@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "DqMfD195zQh/+zQoTZZVj9Jad/8CO8qlpRPfLp+qzNtYB+UGIIbtLiyZYGiiDgGj3UxakAovZupj9hk/faafgQ==",
+  "dgSpecHash": "oGTG+nr0KpSdINe5MNIIoDol9rPO3Wm9PE7Jn6EJ5LyDuvNWhxzEKfjXcNJB+wXAto69PjL6JL0YKAstHcnxQg==",
   "success": true,
   "projectFilePath": "C:\\Users\\aquibj\\Desktop\\Important-Notes\\Angular+APIcore+Authentication using identity\\API_Core\\API_Core.csproj",
   "expectedPackageFiles": [
@@ -15,8 +15,10 @@
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\5.0.15\\microsoft.entityframeworkcore.abstractions.5.0.15.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\5.0.15\\microsoft.entityframeworkcore.analyzers.5.0.15.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.design\\5.0.15\\microsoft.entityframeworkcore.design.5.0.15.nupkg.sha512",
+    "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.inmemory\\5.0.15\\microsoft.entityframeworkcore.inmemory.5.0.15.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.relational\\5.0.15\\microsoft.entityframeworkcore.relational.5.0.15.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.sqlserver\\5.0.15\\microsoft.entityframeworkcore.sqlserver.5.0.15.nupkg.sha512",
+    "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.entityframeworkcore.tools\\5.0.15\\microsoft.entityframeworkcore.tools.5.0.15.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\5.0.0\\microsoft.extensions.caching.abstractions.5.0.0.nupkg.sha512",
     "C:\\Users\\aquibj\\.nuget\\packages\\microsoft.extensions.caching.memory\\5.0.0\\microsoft.extensions.caching.memory.5.0.0.nupkg.sha512",

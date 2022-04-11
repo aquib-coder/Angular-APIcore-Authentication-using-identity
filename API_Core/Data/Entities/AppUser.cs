@@ -8,7 +8,7 @@ namespace API_Core.Data.Entities
 {
     public class AppUser : IdentityUser
     {
-        public string FUllName { get; set; }
+        public string FullName { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateModified{ get; set; }
        

@@ -1,7 +1,12 @@
+using API_Core.Data;
+using API_Core.Data.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,8 +37,13 @@ namespace API_Core
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API_Core", Version = "v1" });
             });
+            services.AddDbContext<AppDBContext>(option =>
+            option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<AppUser, IdentityRole>(opt =>
+            { }).AddEntityFrameworkStores<AppDBContext>();
         }
 
+     
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
