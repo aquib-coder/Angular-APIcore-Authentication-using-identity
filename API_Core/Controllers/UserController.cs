@@ -35,7 +35,8 @@ namespace API_Core.Controllers
                     FullName = model.FullName,
                     Email = model.FullName,
                     DateCreated = DateTime.UtcNow,
-                    DateModified = DateTime.UtcNow
+                    DateModified = DateTime.UtcNow,
+                    UserName=model.Email
                 };
                 var result = await _UserManager.CreateAsync(User, model.Password);
                 if (result.Succeeded)
