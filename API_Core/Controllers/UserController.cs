@@ -14,28 +14,41 @@ namespace API_Core.Controllers
     [Route("api/[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly UserManager<UserController> _UserManager;
-        private readonly SignInManager<UserController> _SignInManager;
+        private readonly UserManager<AppUser> _UserManager;
+        private readonly SignInManager<AppUser> _SignInManager;
         private readonly ILogger<UserController> _logger;
-        public UserController(ILogger<UserController> logger, UserManager<UserController> userManager,
-        SignInManager<UserController> signInManager)
+        public UserController(ILogger<UserController> logger, UserManager<AppUser> userManager,
+        SignInManager<AppUser> signInManager)
         {
             _logger = logger;
             _UserManager = userManager;
             _SignInManager = signInManager;
         }
 
+        [HttpPost("RegisterUser")]
         public async Task<string> Register([FromBody] AddUpdateRegisterUserBindingModel model)
         {
-            var user = new AppUser()
+            try
             {
-                FullName = model.FullName,
-                Email = model.FullName,
-                DateCreated = DateTime.UtcNow,
-                DateModified = DateTime.UtcNow
-            };
-            var result = _UserManager.CreateAsync(user, model.Password);
-        }
+                var User = new AppUser()
+                {
+                    FullName = model.FullName,
+                    Email = model.FullName,
+                    DateCreated = DateTime.UtcNow,
+                    DateModified = DateTime.UtcNow
+                };
+                var result = await _UserManager.CreateAsync(User, model.Password);
+                if (result.Succeeded)
+                {
+                    return await Task.FromResult("User has been created successfully");
+                }
+                return await Task.FromResult(string.Join(",", result.Errors.Select(x => x.Description).ToArray()));
+            }
+            catch (Exception e)
+            {
+                return await Task.FromResult(e.Message);
+            }
 
+        }
     }
 }
