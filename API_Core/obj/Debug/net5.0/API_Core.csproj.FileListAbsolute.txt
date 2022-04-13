@@ -96,7 +96,6 @@ C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-ide
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Microsoft.OpenApi.dll
-C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Newtonsoft.Json.dll
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -130,3 +129,4 @@ C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-ide
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\obj\Debug\net5.0\API_Core.RazorTargetAssemblyInfo.cache
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\obj\Debug\net5.0\API_Core.csproj.CopyComplete
 C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\obj\Debug\net5.0\API_Core.genruntimeconfig.cache
+C:\Users\aquib\Desktop\testAngularClone\Angular-APIcore-Authentication-using-identity\API_Core\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
