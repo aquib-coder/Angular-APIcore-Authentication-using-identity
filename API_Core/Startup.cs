@@ -73,13 +73,17 @@ namespace API_Core
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
             {
                 var key = Encoding.ASCII.GetBytes(Configuration["JWTConfig:Key"]);
+                var Issuer =(Configuration["JWTConfig:Issuer"]);
+                var Audience = (Configuration["JWTConfig:Audience"]);
                 options.TokenValidationParameters = new TokenValidationParameters()
                 {
                     ValidateIssuerSigningKey = true,
                     IssuerSigningKey = new SymmetricSecurityKey(key),
-                    ValidateAudience = false,
-                    ValidateIssuer = false,
-                    RequireExpirationTime=true
+                    ValidateAudience = true,
+                    ValidateIssuer = true,
+                    RequireExpirationTime=true,
+                    ValidIssuer=Issuer,
+                    ValidAudience=Audience
             };
             });
             services.Configure<JWTConfig>(Configuration.GetSection("JWTConfig"));

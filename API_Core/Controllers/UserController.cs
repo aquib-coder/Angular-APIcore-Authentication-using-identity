@@ -34,7 +34,7 @@ namespace API_Core.Controllers
             _SignInManager = signInManager;
             _JWTConfig = jwtconfig.Value;
         }
-
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("RegisterUser")]
         public async Task<string> Register([FromBody] AddUpdateRegisterUserBindingModel model)
          {
@@ -43,7 +43,7 @@ namespace API_Core.Controllers
                 var User = new AppUser()
                 {
                     FullName = model.FullName,
-                    Email = model.FullName,
+                    Email = model.Email,
                     DateCreated = DateTime.UtcNow,
                     DateModified = DateTime.UtcNow,
                     UserName=model.Email
@@ -100,7 +100,9 @@ namespace API_Core.Controllers
                     new System.Security.Claims.Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
-                SigningCredentials=new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials=new SigningCredentials(new SymmetricSecurityKey(key),SecurityAlgorithms.HmacSha256Signature),
+                Issuer=_JWTConfig.Issuer,
+                Audience=_JWTConfig.Audience
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
