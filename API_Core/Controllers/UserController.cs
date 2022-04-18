@@ -1,6 +1,7 @@
 ﻿using API_Core.BindingModel;
 using API_Core.Data.Entities;
 using API_Core.DTO;
+using API_Core.Enums;
 using API_Core.Model;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -34,9 +35,9 @@ namespace API_Core.Controllers
             _SignInManager = signInManager;
             _JWTConfig = jwtconfig.Value;
         }
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [HttpPost("RegisterUser")]
-        public async Task<string> Register([FromBody] AddUpdateRegisterUserBindingModel model)
+        public async Task<object> Register([FromBody] AddUpdateRegisterUserBindingModel model)
          {
             try
             {
@@ -46,18 +47,20 @@ namespace API_Core.Controllers
                     Email = model.Email,
                     DateCreated = DateTime.UtcNow,
                     DateModified = DateTime.UtcNow,
-                    UserName=model.Email
+                    UserName=model.Email,
+                    NormalizedEmail=model.Email
                 };
                 var result = await _UserManager.CreateAsync(User, model.Password);
                 if (result.Succeeded)
                 {
-                    return await Task.FromResult("User has been created successfully");
+                    ResponseModel rm = new ResponseModel(ResponseCode.Ok, "User has been created successfully", null);
+                    return await Task.FromResult(rm);
                 }
-                return await Task.FromResult(string.Join(",", result.Errors.Select(x => x.Description).ToArray()));
+                return await Task.FromResult(new ResponseModel(ResponseCode.Error,"",result.Errors.Select(x => x.Description).ToArray()));
             }
             catch (Exception e)
             {
-                return await Task.FromResult(e.Message);
+                return await Task.FromResult(new ResponseModel(ResponseCode.Error,e.Message, null));
             }
 
         }
@@ -66,26 +69,32 @@ namespace API_Core.Controllers
         public async Task<object> GetAllUser()
         {
             var users = _UserManager.Users.Select(x => new DTOUsers(x.FullName, x.Email, x.UserName,  x.DateModified));
-            return await Task.FromResult(users);
+            return await Task.FromResult(new ResponseModel(ResponseCode.Ok,"",users));
         
         }
         [HttpPost("Login")]
         public async Task<object> Login([FromBody] LoginBindingModel ob)
         {
-            if(ob.Email=="" || ob.Password == "")
+            try
             {
-                return await Task.FromResult("Email or Password field is empty");
+                if (ob.Email == "" || ob.Password == "")
+                {
+                    return await Task.FromResult("Email or Password field is empty");
+                }
+                var result = await _SignInManager.PasswordSignInAsync(ob.Email, ob.Password, false, false);
+                if (result.Succeeded)
+                {
+                    var appuser = await _UserManager.FindByEmailAsync(ob.Email);
+                    var user = new DTOUsers(appuser.FullName, appuser.Email, appuser.Email, appuser.DateCreated);
+                    user.token = GenerateToken(appuser);
+                    return await Task.FromResult(new ResponseModel(ResponseCode.Ok, "", user));
+                }
+                return await Task.FromResult(new ResponseModel(ResponseCode.Error, "Invalid UserName/Password", null));
             }
-            var result = await _SignInManager.PasswordSignInAsync(ob.Email, ob.Password, false, false);
-            if (result.Succeeded)
+            catch(Exception ex)
             {
-                var appuser = await _UserManager.FindByEmailAsync(ob.FullName);
-                var user = new DTOUsers(appuser.FullName,appuser.Email,appuser.Email,appuser.DateCreated);
-                user.token = GenerateToken(appuser);
-                return await Task.FromResult(user);
+                return await Task.FromResult(new ResponseModel(ResponseCode.Error, ex.Message, null));
             }
-            return await Task.FromResult("Invalid UserName/Password");
-
         }
         private string GenerateToken(AppUser user)
         {
